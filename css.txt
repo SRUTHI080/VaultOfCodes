@@ -1,0 +1,74 @@
+.internship-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.internship-card.web-development {
+  background-color: #ffecb3;
+  border: 1px solid #ffecb3;
+}
+
+.internship-card.app-development {
+  background-color: #bdc597;
+  border: 1px solid #bdc597;
+}
+
+.internship-card.python-programming {
+  background-color: #ffc3a0;
+  border: 1px solid #ffc3a0;
+}
+
+.internship-card.java-programming {
+  background-color: #c9e6e2;
+  border: 1px solid #c9e6e2;
+}
+
+.internship-card.canva-designing {
+  background-color: #f7cdcf;
+  border: 1px solid #f7cdcf;
+}
+
+.internship-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.internship-card {
+  width: 300px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.internship-card:hover {
+  transform: scale(1.05);
+}
+
+.internship-card h2 {
+  font-size: 24px;
+  color: #258fa1;
+  margin-bottom: 10px;
+}
+
+.internship-card p {
+  font-size: 18px;
+  color: #258fa1;
+}
+
+.internship-image {
+  width: 100%;
+  height: auto;
+  max-height: 150px;
+  object-fit: cover;
+}
+
+.hidden {
+  display: none;
+}
