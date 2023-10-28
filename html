@@ -103,3 +103,119 @@
 .hidden {
   display: none;
 }
+JS:
+        // script.js
+
+function showHome() {
+  document.getElementById("content").innerHTML = `
+    <h1>Welcome to Vault Of Codes</h1>
+    <p>This is the home page content.</p>
+  `;
+  hideInternship();
+}
+
+function showCatalog() {
+  document.getElementById("content").innerHTML = `
+    <h1>Our Catalog</h1>
+    <p>Explore our catalog of products and services.</p>
+  `;
+  hideInternship();
+}
+
+function showContact() {
+  document.getElementById("content").innerHTML = `
+    <h1>Contact Us</h1>
+    <p>Feel free to reach out to us for any inquiries or feedback.</p>
+  `;
+  hideInternship();
+}
+
+const internships = [
+  {
+    type: "Web Development",
+    title: "Web Development Internship Program",
+    duration: "Duration: 1 month",
+    location: "Location: Virtual",
+    stipend: "Stipend: -",
+    startDate: "Start date: 25/10/2023",
+    imageSrc: "web.jpeg"
+  },
+
+  {
+    type: "App Development",
+    title: "App Development Internship Program",
+    duration: "Duration: 1 month",
+    location: "Location: Virtual",
+    stipend: "Stipend: -",
+    startDate: "Start date: 25/10/2023",
+    imageSrc: "app.jpeg"
+  },
+  {
+    type: "Python Programming",
+    title: "Python Programming Internship Program",
+    duration: "Duration: 1 month",
+    location: "Location: Virtual",
+    stipend: "Stipend: -",
+    startDate: "Start date: 25/10/2023",
+    imageSrc: "python.jpeg"
+  },
+  {
+    type: "Java Programming",
+    title: "Java Programming Internship Program",
+    duration: "Duration: 1 month",
+    location: "Location: Virtual",
+    stipend: "Stipend: -",
+    startDate: "Start date: 25/10/2023",
+    imageSrc: "java.jpeg"
+  },
+  {
+    type: "Canva Designing",
+    title: "Canva Designing Internship Program",
+    duration: "Duration: 1 month",
+    location: "Location: Virtual",
+    stipend: "Stipend: -",
+    startDate: "Start date: 25/10/2023",
+    imageSrc: "canva.jpeg"
+  }
+];
+
+function showInternship() {
+  const internshipContent = document.getElementById("internship-content");
+  internshipContent.innerHTML = "";
+
+  internships.forEach((internship, index) => {
+    const card = document.createElement("div");
+    card.classList.add(
+      "internship-card",
+      internship.type.toLowerCase().replace(" ", "-")
+    );
+    card.innerHTML = `
+      <h2>${internship.title}</h2>
+      <img src="${internship.imageSrc}" alt="${internship.title}" class="internship-image">
+      <p>${internship.duration}</p>
+      <p>${internship.location}</p>
+      <p>${internship.stipend}</p>
+      <p>${internship.startDate}</p>
+      
+    `;
+    internshipContent.appendChild(card);
+  });
+  internshipContent.classList.remove("hidden");
+}
+
+document.getElementById("home-button").addEventListener("click", showHome);
+document
+  .getElementById("catalog-button")
+  .addEventListener("click", showCatalog);
+document
+  .getElementById("contact-button")
+  .addEventListener("click", showContact);
+document
+  .getElementById("internship-button")
+  .addEventListener("click", showInternship);
+
+function hideInternship() {
+  const internshipContent = document.getElementById("internship-content");
+  internshipContent.innerHTML = "";
+  internshipContent.classList.add("hidden");
+}
