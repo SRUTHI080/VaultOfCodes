@@ -1,0 +1,137 @@
+HTML:<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TO DO LIST</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>To Do Tasks</h1>
+      <div class="buttons">
+        <button onclick="showTasks()">Tasks</button>
+        <button onclick="showKnowledge()">Knowledge</button>
+      </div>
+      <div id="content"></div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
+
+
+JS:function showTasks() {
+  const content = document.getElementById("content");
+  content.innerHTML = "";
+
+  for (let i = 1; i <= 4; i++) {
+    const taskCheckbox = document.createElement("input");
+    taskCheckbox.type = "checkbox";
+    taskCheckbox.id = `task-${i}`;
+    const taskLabel = document.createElement("label");
+    taskLabel.htmlFor = `task-${i}`;
+    taskLabel.textContent = `Task ${i}`;
+
+    content.appendChild(taskCheckbox);
+    content.appendChild(taskLabel);
+  }
+
+  const taskSubmitButton = document.createElement("button");
+  taskSubmitButton.textContent = "Submit";
+  taskSubmitButton.onclick = function () {
+    const checkedTasks = document.querySelectorAll(
+      "input[type='checkbox']:checked"
+    );
+    if (checkedTasks.length === 4) {
+      alert("Good job!");
+    } else {
+      alert("Tasks incomplete.");
+    }
+  };
+  content.appendChild(taskSubmitButton);
+}
+
+function showKnowledge() {
+  const content = document.getElementById("content");
+  content.innerHTML = "";
+
+  const knowledgeCheckboxes = ["HTML", "CSS", "JS"];
+  knowledgeCheckboxes.forEach(function (knowledge) {
+    const knowledgeCheckbox = document.createElement("input");
+    knowledgeCheckbox.type = "checkbox";
+    knowledgeCheckbox.id = `knowledge-${knowledge}`;
+    const knowledgeLabel = document.createElement("label");
+    knowledgeLabel.htmlFor = `knowledge-${knowledge}`;
+    knowledgeLabel.textContent = knowledge;
+
+    content.appendChild(knowledgeCheckbox);
+    content.appendChild(knowledgeLabel);
+  });
+
+  const knowledgeSubmitButton = document.createElement("button");
+  knowledgeSubmitButton.textContent = "Submit";
+  knowledgeSubmitButton.onclick = function () {
+    const checkedKnowledge = document.querySelectorAll(
+      "input[type='checkbox']:checked"
+    );
+    if (checkedKnowledge.length === 3) {
+      alert("Good job!");
+    } else {
+      alert("Knowledge incomplete.");
+    }
+  };
+  content.appendChild(knowledgeSubmitButton);
+}
+
+
+
+CSS:body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  text-align: center;
+  padding: 20px;
+  margin: 0;
+}
+
+.container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #333;
+}
+
+.buttons {
+  margin-bottom: 20px;
+}
+
+button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 3px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+#content {
+  font-size: 18px;
+  color: #333;
+}
+
+input[type="checkbox"] {
+  margin-right: 5px;
+}
